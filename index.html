@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frohes neues Jahr!</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Burada CSS dosyasını bağlıyoruz -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="welcome-text">
-            <h1>Merry Christmas!</h1>
+            <h1>Frohes Neues Jahr!</h1>
             <div class="fireworks"></div>
         </div>
         
@@ -19,7 +19,7 @@
             <div class="wishes-text">
                 <p>Liebe Freunde,</p>
                 
-                <p>Das neue Jahr bedeutet neue Hoffnungen und neuer Anfang. Ich wünsche uns allen Gesundheit, Glück und Frieden für das Jahr 2025.</p>
+                <p>Das neue Jahr bedeutet neue Hoffnungen und ein neuer Anfang. Ich wünsche uns allen Gesundheit, Glück und Frieden für das Jahr 2025.</p>
                 
                 <p>Lasst uns die Erschöpfung des vergangenen Jahres vergessen und ich hoffe, dass ihr im neuen Jahr eure Träume verwirklicht und ein glückliches und gesundes Jahr mit euren Lieben verbringt. 🎄✨🎅</p>
                 
@@ -43,6 +43,8 @@
         </footer>
     </div>
     <canvas id="canvas"></canvas>
+
+    <!-- Kontakt Modal (FormSubmit ile çalışacak) -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -50,6 +52,7 @@
                 <h3>Kontakt</h3>
                 <div class="contact-form-container">
                     <div class="contact-form">
+                        <!-- FormSubmit API ile mail gönderme -->
                         <form action="https://formsubmit.co/erdii.sbht@hotmail.com" method="POST">
                             <div class="form-group">
                                 <label>E-Mail</label>
@@ -70,6 +73,7 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js"></script> <!-- JavaScript dosyasını bağlıyoruz -->
 </body>
-</html> 
+</html>
