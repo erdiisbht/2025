@@ -70,69 +70,6 @@ window.addEventListener('resize', () => {
 init();
 animate();
 
-// Kar taneleri için ayarlar
-function createSnowflake() {
-    if (activeSnowflakes >= MAX_PARTICLES) return;
-    activeSnowflakes++;
-    
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    
-    // Rastgele kar tanesi karakteri seç
-    const snowflakeChars = ['❆', '❅', '❄', '✻', '✺', '❋', '❊', '❉', '❈', '❇'];
-    snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
-    
-    // Başlangıç pozisyonu
-    const startPositionX = Math.random() * window.innerWidth;
-    snowflake.style.left = startPositionX + 'px';
-    
-    // Rastgele boyut ve opaklık
-    const size = window.innerWidth < 768 ? (Math.random() * 15 + 5) : (Math.random() * 25 + 8);
-    snowflake.style.fontSize = size + 'px';
-    snowflake.style.opacity = Math.random() * 0.8 + 0.2;
-    
-    document.body.appendChild(snowflake);
-    
-    // Animasyon parametreleri
-    let posY = -10;
-    let posX = startPositionX;
-    const speed = 0.3 + Math.random() * 2;
-    const wobbleSpeed = Math.random() * 0.3;
-    let rotation = Math.random() * 360;
-    let time = 0;
-    
-    function fall() {
-        time += 0.01;
-        posY += speed;
-        posX += Math.sin(time) * wobbleSpeed + (Math.random() - 0.5) * 0.5;
-        rotation += 0.8;
-        
-        snowflake.style.transform = `translate(${posX}px, ${posY}px) rotate(${rotation}deg)`;
-        
-        if (posY > window.innerHeight) {
-            snowflake.remove();
-            activeSnowflakes--;
-        } else {
-            requestAnimationFrame(fall);
-        }
-    }
-    
-    fall();
-}
-
-// Kar yağışını başlat
-function startSnowfall() {
-    setInterval(createSnowflake, PARTICLE_INTERVAL);
-}
-
-// Sayfa yüklendiğinde kar yağışını başlat
-window.addEventListener('load', () => {
-    startSnowfall();
-    for (let i = 0; i < 30; i++) {
-        setTimeout(() => createSnowflake(), i * 100);
-    }
-});
-
 // Modal işlemleri
 const modal = document.getElementById('contactModal');
 const btn = document.getElementById('contactBtn');
