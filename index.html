@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frohes neues Jahr!</title>
-    <link rel="stylesheet" href="style.css"> <!-- Burada CSS dosyasını bağlıyoruz -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -52,20 +52,24 @@
                 <h3>Kontakt</h3>
                 <div class="contact-form-container">
                     <div class="contact-form">
-                        <!-- FormSubmit API ile mail gönderme -->
+                        <!-- FormSubmit ile mail gönderme -->
                         <form action="https://formsubmit.co/erdii.sbht@hotmail.com" method="POST">
+                            <!-- Kullanıcı e-posta adresini girer -->
                             <div class="form-group">
                                 <label>E-Mail</label>
                                 <input type="email" name="email" required>
                             </div>
+                            <!-- Kullanıcı ismini girer -->
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" name="name" required>
                             </div>
+                            <!-- Kullanıcı mesajını girer -->
                             <div class="form-group">
                                 <label>Nachricht</label>
                                 <textarea name="message" required></textarea>
                             </div>
+                            <!-- Form gönderme butonu -->
                             <button type="submit" class="submit-btn">SENDEN</button>
                         </form>
                     </div>
@@ -74,6 +78,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script> <!-- JavaScript dosyasını bağlıyoruz -->
+    <script src="script.js"></script>
 </body>
 </html>
