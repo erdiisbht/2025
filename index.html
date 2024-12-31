@@ -1,79 +1,80 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Frohes neues Jahr!</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Frohes neues Jahr!</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="welcome-text">
-            <h1>Frohes Neues Jahr!</h1>
-            <div class="fireworks"></div>
-        </div>
-        
-        <div class="wishes-section">
-            <h2>Neujahrswünsche</h2>
-            <div class="wishes-text">
-                <p>Liebe Freunde,</p>
-                
-                <p>Das neue Jahr bedeutet neue Hoffnungen und ein neuer Anfang. Ich wünsche uns allen Gesundheit, Glück und Frieden für das Jahr 2025.</p>
-                
-                <p>Lasst uns die Erschöpfung des vergangenen Jahres vergessen und ich hoffe, dass ihr im neuen Jahr eure Träume verwirklicht und ein glückliches und gesundes Jahr mit euren Lieben verbringt. 🎄✨🎅</p>
-                
-                <p>Wenn Sie mir eine Nachricht hinterlassen möchten, können Sie diese über den Kontaktbereich senden.</p>
-                
-                <p class="signature">Mit besten Grüßen,<br>Erdi</p>
-            </div>
-        </div>
-        
-        <footer>
-            <div class="contact-button">
-                <button id="contactBtn">Kontakt</button>
-            </div>
-            <div class="social-media">
-                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/erdiisbht/" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/erdisabahat/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/erdiisbht/" title="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </footer>
-    </div>
-    <canvas id="canvas"></canvas>
+   <div class="container">
+       <div class="welcome-text">
+           <h1>Frohes Neues Jahr!</h1>
+           <div class="fireworks"></div>
+       </div>
+       
+       <div class="wishes-section">
+           <h2>Neujahrswünsche</h2>
+           <div class="wishes-text">
+               <p>Liebe Freunde,</p>
+               
+               <p>Das neue Jahr bedeutet neue Hoffnungen und ein neuer Anfang. Ich wünsche uns allen Gesundheit, Glück und Frieden für das Jahr 2025.</p>
+               
+               <p>Lasst uns die Erschöpfung des vergangenen Jahres vergessen und ich hoffe, dass ihr im neuen Jahr eure Träume verwirklicht und ein glückliches und gesundes Jahr mit euren Lieben verbringt. 🎄✨🎅</p>
+               
+               <p>Wenn Sie mir eine Nachricht hinterlassen möchten, können Sie diese über den Kontaktbereich senden.</p>
+               
+               <p class="signature">Mit besten Grüßen,<br>Erdi</p>
+           </div>
+       </div>
+       
+       <footer>
+           <div class="contact-button">
+               <button id="contactBtn">Kontakt</button>
+           </div>
+           <div class="social-media">
+               <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+               <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+               <a href="https://www.instagram.com/erdiisbht/" title="Instagram"><i class="fab fa-instagram"></i></a>
+               <a href="https://www.linkedin.com/in/erdisabahat/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+               <a href="https://github.com/erdiisbht/" title="GitHub"><i class="fab fa-github"></i></a>
+           </div>
+       </footer>
+   </div>
+   <canvas id="canvas"></canvas>
 
-    <!-- Kontakt Modal (FormSubmit ile çalışacak) -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="contact">
-                <h3>Kontakt</h3>
-                <div class="contact-form-container">
-                    <div class="contact-form">
-                        <!-- FormSubmit ile mail gönderme -->
-                        <form action="https://formsubmit.co/erdii.sbht@hotmail.com" method="POST">
-                            <div class="form-group">
-                                <label>E-Mail</label>
-                                <input type="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Nachricht</label>
-                                <textarea name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">SENDEN</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script> <!-- JavaScript dosyasını bağlıyoruz -->
+   <div id="contactModal" class="modal">
+       <div class="modal-content">
+           <span class="close">&times;</span>
+           <div class="contact">
+               <h3>Kontakt</h3>
+               <div class="contact-form-container">
+                   <div class="contact-form">
+                       <form action="https://formsubmit.co/erdii.sbht@hotmail.com" method="POST">
+                           <input type="hidden" name="_subject" value="Nachricht von der Neujahrsseite">
+                           <input type="hidden" name="_template" value="table">
+                           <input type="hidden" name="_captcha" value="false">
+                           <input type="hidden" name="_next" value="https://erdiisbht.github.io/2025/">
+                           <div class="form-group">
+                               <label>E-Mail</label>
+                               <input type="email" name="email" required>
+                           </div>
+                           <div class="form-group">
+                               <label>Name</label>
+                               <input type="text" name="name" required>
+                           </div>
+                           <div class="form-group">
+                               <label>Nachricht</label>
+                               <textarea name="message" required></textarea>
+                           </div>
+                           <button type="submit" class="submit-btn">SENDEN</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <script src="script.js"></script>
 </body>
 </html>
