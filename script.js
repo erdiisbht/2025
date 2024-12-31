@@ -8,11 +8,10 @@ canvas.height = window.innerHeight;
 const particles = [];
 const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
 
-// Performans optimizasyonu için eklenebilecek kodlar
-const MAX_SNOWFLAKES = window.innerWidth < 768 ? 50 : 100;
-const SNOWFLAKE_INTERVAL = window.innerWidth < 768 ? 150 : 100;
-let activeSnowflakes = 0;
-const snowflakeChars = ['❆', '❅', '❄', '✻', '✺', '❋', '❊', '❉', '❈', '❇'];
+// Performans optimizasyonu için ayarlar
+const MAX_PARTICLES = window.innerWidth < 768 ? 50 : 100;
+const PARTICLE_INTERVAL = window.innerWidth < 768 ? 150 : 100;
+let activeParticles = 0;
 
 class Particle {
     constructor() {
@@ -44,7 +43,7 @@ class Particle {
 
 // Konfetileri oluştur
 function init() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < MAX_PARTICLES; i++) {
         particles.push(new Particle());
     }
 }
@@ -73,23 +72,22 @@ animate();
 
 // Kar taneleri için ayarlar
 function createSnowflake() {
-    if (activeSnowflakes >= MAX_SNOWFLAKES) return;
+    if (activeSnowflakes >= MAX_PARTICLES) return;
     activeSnowflakes++;
     
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
     
     // Rastgele kar tanesi karakteri seç
+    const snowflakeChars = ['❆', '❅', '❄', '✻', '✺', '❋', '❊', '❉', '❈', '❇'];
     snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
     
     // Başlangıç pozisyonu
     const startPositionX = Math.random() * window.innerWidth;
     snowflake.style.left = startPositionX + 'px';
     
-    // Rastgele boyut ve opaklık - boyut aralığını artırdık
-    const size = window.innerWidth < 768 ? 
-        (Math.random() * 15 + 5) : // Mobil için
-        (Math.random() * 25 + 8);  // Desktop için
+    // Rastgele boyut ve opaklık
+    const size = window.innerWidth < 768 ? (Math.random() * 15 + 5) : (Math.random() * 25 + 8);
     snowflake.style.fontSize = size + 'px';
     snowflake.style.opacity = Math.random() * 0.8 + 0.2;
     
@@ -98,15 +96,14 @@ function createSnowflake() {
     // Animasyon parametreleri
     let posY = -10;
     let posX = startPositionX;
-    const speed = 0.3 + Math.random() * 2; // Daha değişken hızlar
-    const wobbleSpeed = Math.random() * 0.3; // Daha fazla sallanma
+    const speed = 0.3 + Math.random() * 2;
+    const wobbleSpeed = Math.random() * 0.3;
     let rotation = Math.random() * 360;
     let time = 0;
     
     function fall() {
         time += 0.01;
         posY += speed;
-        // Geliştirilmiş sallanma hareketi
         posX += Math.sin(time) * wobbleSpeed + (Math.random() - 0.5) * 0.5;
         rotation += 0.8;
         
@@ -125,24 +122,15 @@ function createSnowflake() {
 
 // Kar yağışını başlat
 function startSnowfall() {
-    setInterval(createSnowflake, SNOWFLAKE_INTERVAL);
+    setInterval(createSnowflake, PARTICLE_INTERVAL);
 }
 
 // Sayfa yüklendiğinde kar yağışını başlat
 window.addEventListener('load', () => {
     startSnowfall();
-    // Başlangıçta daha fazla kar tanesi oluştur
-    for(let i = 0; i < 30; i++) {
+    for (let i = 0; i < 30; i++) {
         setTimeout(() => createSnowflake(), i * 100);
     }
-});
-
-// Pencere boyutu değiştiğinde kar tanelerini yeniden ayarla
-window.addEventListener('resize', () => {
-    const snowflakes = document.querySelectorAll('.snowflake');
-    snowflakes.forEach(snowflake => {
-        snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    });
 });
 
 // Modal işlemleri
