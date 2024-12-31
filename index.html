@@ -44,6 +44,7 @@
    </div>
    <canvas id="canvas"></canvas>
 
+   <!-- Kontakt Modal (FormSubmit ile çalışacak) -->
    <div id="contactModal" class="modal">
        <div class="modal-content">
            <span class="close">&times;</span>
@@ -51,28 +52,32 @@
                <h3>Kontakt</h3>
                <div class="contact-form-container">
                    <div class="contact-form">
+                       <!-- FormSubmit ile mail gönderme -->
                        <form action="https://formsubmit.co/erdii.sbht@hotmail.com" method="POST">
-                           <!-- Honeypot -->
-                           <input type="text" name="_honey" style="display:none">
-                           
-                           <!-- Disable captcha -->
+                           <input type="hidden" name="_subject" value="Nachricht von der Neujahrsseite">
+                           <input type="hidden" name="_template" value="table">
                            <input type="hidden" name="_captcha" value="false">
-                           
-                           <!-- Success page -->
                            <input type="hidden" name="_next" value="https://erdiisbht.github.io/2025/">
                            
+                           <!-- Kullanıcı E-posta Alanı -->
                            <div class="form-group">
                                <label>E-Mail</label>
                                <input type="email" name="email" required>
                            </div>
+                           
+                           <!-- Kullanıcı Adı Alanı -->
                            <div class="form-group">
                                <label>Name</label>
                                <input type="text" name="name" required>
                            </div>
+                           
+                           <!-- Kullanıcı Mesajı Alanı -->
                            <div class="form-group">
                                <label>Nachricht</label>
                                <textarea name="message" required></textarea>
                            </div>
+                           
+                           <!-- Gönderme Butonu -->
                            <button type="submit" class="submit-btn">SENDEN</button>
                        </form>
                    </div>
@@ -80,6 +85,22 @@
            </div>
        </div>
    </div>
+
+   <!-- Teşekkür Mesajı -->
+   <div id="thankYouMessage" style="display:none;">
+       <h3>Danke für Ihre Nachricht!</h3>
+   </div>
+
    <script src="script.js"></script>
+
+   <script>
+       // FormSubmit işleminden sonra teşekkür mesajını göster
+       document.querySelector('form').onsubmit = function() {
+           document.getElementById('thankYouMessage').style.display = 'block';
+           setTimeout(function() {
+               document.getElementById('thankYouMessage').style.display = 'none';
+           }, 3000);  // 3 saniye sonra teşekkür mesajı kaybolur
+       };
+   </script>
 </body>
 </html>
