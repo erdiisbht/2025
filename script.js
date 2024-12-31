@@ -149,10 +149,6 @@ window.addEventListener('resize', () => {
 const modal = document.getElementById('contactModal');
 const btn = document.getElementById('contactBtn');
 const span = document.getElementsByClassName('close')[0];
-let lastScrollTop = 0;
-
-// Buton her zaman görünür olsun
-btn.style.display = 'block';
 
 // Modal açma
 btn.onclick = function() {
@@ -179,19 +175,3 @@ window.onclick = function(event) {
         }, 300);
     }
 }
-
-// Form gönderme
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    const submitButton = this.querySelector('button[type="submit"]');
-    submitButton.disabled = true;
-    submitButton.textContent = 'Wird gesendet...';
-    
-    setTimeout(() => {
-        modal.classList.remove('show');
-        setTimeout(() => {
-            modal.style.display = 'none';
-            submitButton.disabled = false;
-            submitButton.textContent = 'Senden';
-        }, 300);
-    }, 2000);
-});
